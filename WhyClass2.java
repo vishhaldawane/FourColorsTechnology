@@ -23,9 +23,9 @@ public class WhyClass2 {
 		
 		thePerson3 = new Person();
 		
-		thePerson1.setPerson('F',23,"Julie");
-		thePerson2.setPerson('M',25,"Jack");
-		thePerson3.setPerson('M',28,"Arnold");
+		thePerson1.setPerson('F',23,"Julie","julie@gmail.com"); //u r utilizing the instance's function
+		thePerson2.setPerson('M',25,"Jack","jack@gmail.com");
+		thePerson3.setPerson('M',28,"Arnold","arnold@gmail.com");
 		
 		
 		thePerson1.printPerson();
@@ -90,12 +90,16 @@ public class WhyClass2 {
  
  */
 
+//class is simply a design, 			e.g., blue print of a house
+//object is an instance of a class		e.g., the actual house (s)
+
 class Person // external structure to hold the data an relevant functions
 {
 	//declaration of the data types and variables
 	char gender; //global to the class members, since it is inside the class Person
 	int  age;
 	String name;
+	String emailAddress; //introduce a new member
 	
 	//one more function is here ie, Person() { } <-- explicit no-arg constructor
 	
@@ -103,11 +107,12 @@ class Person // external structure to hold the data an relevant functions
 	
 	//third member is - the constructor function - Person() { }
 		
-	void setPerson(char x, int y, String z) {
+	void setPerson(char x, int y, String z, String ea) {
 		//setPerson(with parameters) initialization of the variables
 		gender=x;
 		age=y;
 		name=z;;
+		emailAddress = ea; //initialize this new member
 	}
 	
 	void printPerson() {
@@ -115,6 +120,7 @@ class Person // external structure to hold the data an relevant functions
 		System.out.println("\nGender is : "+gender);
 		System.out.println("Age    is : "+age);
 		System.out.println("Name   is : "+name);
+		System.out.println("Email  is : "+emailAddress); // print it
 	}
 	
 			
