@@ -37,10 +37,13 @@ public class SavingsAccountTest {
 		savObj3.deposit(8000);
 		savObj3.showAccountDetails();
 		
+		CurrentAccount curObj = new CurrentAccount();
 		
-	}
+		
+		
+	} //end of the main
 
-}
+}//end of the class
 
 class SavingsAccount
 {
@@ -72,8 +75,36 @@ class SavingsAccount
 		System.out.println("Withdrawing $"+amountToWithdraw+" for AcNo:"+accountNumber);
 		accountBalance = accountBalance - amountToWithdraw; 
 	}
+
 }
 
+class CurrentAccount { }
+
+class CreditAccount  { }
+
+
+
+
+
+
+// add one extra member ONLY in SavingsAccount as
+// interestRate
+// acno name acbalance  interestRate
+// 104  Seema  50000     3.5f <-- as interest rate
+
+
+//innovate CurrentAccount which is same as SavingsAccount
+// it has "fourth" member as "float overdraftLimit"
+// acno , name, acbalance, overdraftLimit
+// 101    Jack  10000      0.25, ie 12500 can be overdrafted/withdrawn by jack
+
+
+//innovate CreditAccount which is same as SavingsAccount
+// it has fourth member as "double creditLimit"
+//it has fifth member as "double cashLimit"
+
+// acno name acbalance  creditLimit	cashLimit
+// 102  Rita  50000      90000		20000	 <-- 
 
 
 
