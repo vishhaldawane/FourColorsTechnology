@@ -4,27 +4,27 @@ public class SavingsAccountTest {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		SavingsAccount savObj1 = new SavingsAccount();
-		
-		savObj1.setInitialValues(101, "Jack",50000,4.5f);
+		SavingsAccount savObj1 = new SavingsAccount(101, "Jack",50000,4.5f);
+	
+		//savObj1.setInitialValues(101, "Jack",50000,4.5f);
 		savObj1.showAccountDetails();
 		double simpleInterest = savObj1.calculateSimpleInterest();
 		System.out.println("Simple interest is : "+simpleInterest);
 		
 		System.out.println("==============");
 		
-		CurrentAccount currObj2 = new CurrentAccount();
+		CurrentAccount currObj2 = new CurrentAccount(102, "Smith",70000,0.25f);
 		
-		currObj2.setInitialValues(102, "Smith",70000,0.25f);
+		//currObj2.setInitialValues(102, "Smith",70000,0.25f);
 		currObj2.showAccountDetails();
 		double overDraftAmount = currObj2.calculateOverDraftAmount();
 		System.out.println("Over Draft Amount is : "+overDraftAmount);
 		
 		System.out.println("==============");
 		
-		CreditAccount creObj3 = new CreditAccount();
+		CreditAccount creObj3 = new CreditAccount(103, "Robert",100000,20000);
 		
-		creObj3.setInitialValues(103, "Robert",100000,20000);
+		//creObj3.setInitialValues(103, "Robert",100000,20000);
 		creObj3.showAccountDetails();
 		double credibility = creObj3.calculateCredibility();
 		System.out.println("Credibility Amount is : "+credibility);
@@ -48,6 +48,15 @@ class SavingsAccount
 	private String accountHolderName; // DATA member
 	private double accountBalance; // DATA member
 	private float interestRate; //
+	
+	//parameterized constructor
+	SavingsAccount(int acno, String acHolder, double acbal, float ir) {
+		System.out.println("SavingsAccount(int,String,double,float) ...constructor is setting the initial account details...");
+		accountNumber = acno; // set the local var to the DATA member 
+		accountHolderName = acHolder;
+		accountBalance = acbal;
+		interestRate = ir;
+	}
 	
 	//MEMBER METHOD SECTION   local var     local var  local  var
 	void setInitialValues(int acno, String acHolder, double acbal, float ir) {
@@ -92,6 +101,16 @@ class CurrentAccount
 	private double accountBalance; // DATA member
 	private float overdraftLimit; //
 	
+	
+	//MEMBER METHOD SECTION   local var     local var  local  var
+	CurrentAccount(int acno, String acHolder, double acbal, float odl) {
+		System.out.println("CurrentAccount(int,String,double,float) constructor is setting the initial account details...");
+		accountNumber = acno; // set the local var to the DATA member 
+		accountHolderName = acHolder;
+		accountBalance = acbal;
+		overdraftLimit = odl;
+	}
+		
 	//MEMBER METHOD SECTION   local var     local var  local  var
 	void setInitialValues(int acno, String acHolder, double acbal, float odl) {
 		System.out.println("setting the initial account details...");
@@ -136,6 +155,17 @@ class CreditAccount
 	private double cashLimit; //
 	
 	
+	//MEMBER METHOD SECTION   local var     local var  local  var
+	CreditAccount(int acno, String acHolder, double acbal,  double cashLim) {
+		System.out.println("CreditAccount(int,String,double, double) constructor is setting the initial account details...");
+		accountNumber = acno; // set the local var to the DATA member 
+		accountHolderName = acHolder;
+		accountBalance = acbal;
+		creditLimit = acbal;
+		cashLimit = cashLim;
+	}
+		
+		
 	//MEMBER METHOD SECTION   local var     local var  local  var
 	void setInitialValues(int acno, String acHolder, double acbal,  double cashLim) {
 		System.out.println("setting the initial account details...");
