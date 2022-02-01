@@ -6,38 +6,34 @@ public class SavingsAccountTest {
 		// TODO Auto-generated method stub
 		SavingsAccount savObj1 = new SavingsAccount();
 		
-		savObj1.setInitialValues(101, "Jack",50000);
+		savObj1.setInitialValues(101, "Jack",50000,4.5f);
 		savObj1.showAccountDetails();
+		double simpleInterest = savObj1.calculateSimpleInterest();
+		System.out.println("Simple interest is : "+simpleInterest);
 		
-		savObj1.deposit(5000);
-		savObj1.showAccountDetails();
+		System.out.println("==============");
 		
-		savObj1.withdraw(3000);
-		savObj1.showAccountDetails();
+		CurrentAccount currObj2 = new CurrentAccount();
 		
-		savObj1.withdraw(1000);
-		savObj1.showAccountDetails();
+		currObj2.setInitialValues(102, "Smith",70000,0.25f);
+		currObj2.showAccountDetails();
+		double overDraftAmount = currObj2.calculateOverDraftAmount();
+		System.out.println("Over Draft Amount is : "+overDraftAmount);
 		
-		savObj1.deposit(9000);
-		savObj1.showAccountDetails();
+		System.out.println("==============");
 		
-		SavingsAccount savObj2 = new SavingsAccount();
+		CreditAccount creObj3 = new CreditAccount();
 		
-		savObj2.setInitialValues(102, "Smith",70000);
-		savObj2.showAccountDetails();
+		creObj3.setInitialValues(103, "Robert",100000,20000);
+		creObj3.showAccountDetails();
+		double credibility = creObj3.calculateCredibility();
+		System.out.println("Credibility Amount is : "+credibility);
 		
-		savObj2.deposit(5000);
-		savObj2.showAccountDetails();
+		creObj3.withdraw(20000);
+		creObj3.withdrawCash(7000);
 		
-		SavingsAccount savObj3 = new SavingsAccount();
-		
-		savObj3.setInitialValues(103, "Julie",90000);
-		savObj3.showAccountDetails();
-		
-		savObj3.deposit(8000);
-		savObj3.showAccountDetails();
-		
-		CurrentAccount curObj = new CurrentAccount();
+		double credibility2 = creObj3.calculateCredibility();
+		System.out.println("Credibility2 Amount is : "+credibility2);
 		
 		
 		
@@ -51,19 +47,23 @@ class SavingsAccount
 	private int accountNumber; // DATA member
 	private String accountHolderName; // DATA member
 	private double accountBalance; // DATA member
+	private float interestRate; //
 	
 	//MEMBER METHOD SECTION   local var     local var  local  var
-	void setInitialValues(int acno, String acHolder, double acbal) {
+	void setInitialValues(int acno, String acHolder, double acbal, float ir) {
 		System.out.println("setting the initial account details...");
 		accountNumber = acno; // set the local var to the DATA member 
 		accountHolderName = acHolder;
 		accountBalance = acbal;
+		interestRate = ir;
 	}
 	
 	void showAccountDetails() {
 		System.out.println("Account Number  : "+accountNumber);
 		System.out.println("Account Holder  : "+accountHolderName);
 		System.out.println("Account Balance : "+accountBalance);
+		System.out.println("Interest Rate   : "+interestRate);
+		
 		System.out.println("--------------------");
 	}
 	void deposit(double amountToDeposit) {
@@ -75,12 +75,111 @@ class SavingsAccount
 		System.out.println("Withdrawing $"+amountToWithdraw+" for AcNo:"+accountNumber);
 		accountBalance = accountBalance - amountToWithdraw; 
 	}
+	
+	double calculateSimpleInterest() {
+		System.out.println("Calculating simple interest....");
+		double simpleInterest = (accountBalance * 1 * interestRate)/100;
+		return simpleInterest;
+	}
 
 }
 
-class CurrentAccount { }
+class CurrentAccount
+{
+	//DATA MEMBER SECTION
+	private int accountNumber; // DATA member
+	private String accountHolderName; // DATA member
+	private double accountBalance; // DATA member
+	private float overdraftLimit; //
+	
+	//MEMBER METHOD SECTION   local var     local var  local  var
+	void setInitialValues(int acno, String acHolder, double acbal, float odl) {
+		System.out.println("setting the initial account details...");
+		accountNumber = acno; // set the local var to the DATA member 
+		accountHolderName = acHolder;
+		accountBalance = acbal;
+		overdraftLimit = odl;
+	}
+	
+	void showAccountDetails() {
+		System.out.println("Account Number  : "+accountNumber);
+		System.out.println("Account Holder  : "+accountHolderName);
+		System.out.println("Account Balance : "+accountBalance);
+		System.out.println("OverDraftLimit  : "+overdraftLimit);
+		
+		System.out.println("--------------------");
+	}
+	void deposit(double amountToDeposit) {
+		System.out.println("Depositing $"+amountToDeposit+" for AcNo:"+accountNumber);
+		accountBalance = accountBalance + amountToDeposit; 
+	}
+	
+	void withdraw(double amountToWithdraw) {
+		System.out.println("Withdrawing $"+amountToWithdraw+" for AcNo:"+accountNumber);
+		accountBalance = accountBalance - amountToWithdraw; 
+	}
+	
+	double calculateOverDraftAmount() {
+		System.out.println("Calculating over draft amount....");
+		double overDraftAmount = accountBalance + (accountBalance * overdraftLimit);
+		return overDraftAmount;
+	}
 
-class CreditAccount  { }
+}
+class CreditAccount
+{
+	//DATA MEMBER SECTION
+	private int accountNumber; // DATA member
+	private String accountHolderName; // DATA member
+	private double accountBalance; // DATA member
+	private double creditLimit; //
+	private double cashLimit; //
+	
+	
+	//MEMBER METHOD SECTION   local var     local var  local  var
+	void setInitialValues(int acno, String acHolder, double acbal,  double cashLim) {
+		System.out.println("setting the initial account details...");
+		accountNumber = acno; // set the local var to the DATA member 
+		accountHolderName = acHolder;
+		accountBalance = acbal;
+		creditLimit = acbal;
+		cashLimit = cashLim;
+	}
+	
+	void showAccountDetails() {
+		System.out.println("Account Number  : "+accountNumber);
+		System.out.println("Account Holder  : "+accountHolderName);
+		System.out.println("Account Balance : "+accountBalance);
+		System.out.println("Credit Limit    : "+creditLimit);
+		System.out.println("Cash Limit      : "+cashLimit);
+		
+		System.out.println("--------------------");
+	}
+	void deposit(double amountToDeposit) {
+		System.out.println("Depositing $"+amountToDeposit+" for AcNo:"+accountNumber);
+		accountBalance = accountBalance + amountToDeposit; 
+	}
+	
+	void withdraw(double amountToWithdraw) {
+		System.out.println("Withdrawing $"+amountToWithdraw+" for AcNo:"+accountNumber);
+		accountBalance = accountBalance - amountToWithdraw; 
+		creditLimit = accountBalance;
+	}
+	
+	void withdrawCash(double amountToWithdraw) {
+		System.out.println("Withdrawing Cash $"+amountToWithdraw+" for AcNo:"+accountNumber);
+		accountBalance = accountBalance - amountToWithdraw; 
+		cashLimit = cashLimit - amountToWithdraw;
+	}
+	
+	double calculateCredibility() {
+		System.out.println("Calculating credibility....");
+		double credibilityAmount = creditLimit + cashLimit;
+		return credibilityAmount;
+	}
+
+}
+
 
 
 
