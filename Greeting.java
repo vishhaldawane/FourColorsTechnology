@@ -375,16 +375,128 @@ class Welcome { // Welcome.java
     			
     			d. operator overloading
     			
+    			 	ability of an operator to participate in multiple activities
+    			 			System.out.println(10+20+" output is "+10+20);
+							System.out.println("30 output is 10"+20);
+    						System.out.println("30 output is 1020");
+    			
     	4. Inheritance
+    	
+    		ability of a business entity to acquire properties from existing
+    		business entities
+    		
+    		
+    		
+    			
     	
     	5. Object communication
     		
     		
+    	
+ASSIGNMENT DAY 2
+--------------------    		
+CONSTRUCTOR OVERLOADING TO BE DONE IN THE CLASSES SOLVED YESTEREDAY
+
+INNOVATE INHERITANCE IN THESE CLASSED INNOVATED BY YOU
     		
     		
-    		
-    		
-    		
+    					InternetConnection
+    						|
+    			--------------------------------------------
+					|				|				|
+    		BroadbandConnection  WifiConnection	MobileHotSpot
+    													|
+    													TetheringConnection
+    	
+   single
+    	A
+    	|
+    	B
+    	
+   multilevel
+   		A
+   		|
+   		B
+   		|
+   		C
+   		
+   		Point2D
+   		|
+   		Point3D
+   		|
+   		ColouredPoint3D
+   		|
+   		ColouredPoint4D
+   		
+   		
+    	
+    class InternetConnection
+    {
+    	String type;
+    	int speed;
+    	int range;
+    
+    }
+    class BoardbandConnection extends InternetConnection
+    {
+    	String wireType;
+    	
+    }
+    class WifiConnection extends InternetConnection
+    {
+    	String wifiName;
+    	
+    }
+    
+    
+    
+    class Painting
+    {
+    
+    }
+    
+    class OilPainting extends Painting
+    {
+    
+    }
+    
+    class MadhubaniPainting extends Painting
+    {
+    
+    }
+    
+    
+    class Player
+    {
+    }
+    
+    class Cricketer extends Player
+    {
+    
+    }
+    
+    class Baller extends Cricketer
+    {
+    }
+    
+    
+    class Batsman extends Cricketer
+    {
+    
+    }
+    
+    
+    				Player
+    				|
+    		----------------------------------------
+    		|				|
+    		Cricketer		HockeyPlayer
+    		|
+    -----------------
+    |			|
+    Baller		Batsman
+    ball(){}     hitSixer(){ }
+    
     		
     		
     		
