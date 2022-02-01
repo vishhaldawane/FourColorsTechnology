@@ -264,6 +264,8 @@ class Welcome { // Welcome.java
     		
     		- it is automatically executed during the object creation process
     		
+    		- IT IS CALLED "ONLY ONCE" PER OBJECT
+    		
     		Person thePerson = new 	Person();
     		|			 |		 |		|
     		className refName allocator constructor
@@ -297,6 +299,104 @@ class Welcome { // Welcome.java
     		
     		at a time you can have either the implicit or the explicit
     		but no
+    		
+    		
+    		
+    	OOPs concepts
+    	---------------
+    	
+    	1. Abstraction
+    		it is the "what is it?" part of an object
+    		it hides the complexity of an object
+    		and invokes the simple accessible functions to utilize it 
+    	
+    		What is savings account object? -> to a Farmer!!!
+    				
+    				- to open a saving account in the bank
+    				- to deposit
+    				- to withdraw
+    				- to see the balance
+    				- enjoy the interest rate
+    				
+    				- data abstraction
+    			it hides the data
+    					do we really know how much cash is maintained by any ATM?
+    					how many people access the ATM last WEEK, Last Month, Last Year
+    					
+    				- procedural abstraction
+    			it hides the functions
+    					is there any security check done by the ATM?
+    					can they log our activities
+    					camera monitoring...
+    					...
+    					
+    			50          50        50         
+    				
+    	2. Encapsulation
+    		it is the "how is it?" part of an object
+    		it performs the coding (complexity) of an object
+    		it makes the functions ready for us to run them as a user
+    		
+    		it binds the "data and relevant functions" together in a particular contract
+    		
+    		make the data as private 
+    		and the relevant functions to access this private data
+    		these functions can be utilized by the customer / client / developer
+    		
+    		
+    	3. Polymorphism
+    			poly = many
+    			morph = form
+    			
+    			ability of a "business entity" to acquire multiple forms
+    			
+    			a. class extension
+    			
+    						Doctor
+    						 |
+    					------------
+    					|
+    				Surgeon
+    					|
+    			------------------
+    			|				|
+    	HeartSurgeon		NeuroSureon
+    			
+    			b. compile time binding - function overloading
+    					ability of a function to be redefined with the same name
+    					but on the following terms
+    					i.   type of parameters should be different
+    					ii.  number of parameters should be different
+    					iii. if the type and number of parameters are same, then
+    						 their sequence of type of parameters should be different
+    						 
+    			
+    			c. function overriding
+    			
+    			d. operator overloading
+    			
+    	4. Inheritance
+    	
+    	5. Object communication
+    		
+    		
+    		
+    		
+    		
+    		
+    		
+    		
+    		
+    		
+    		
+    		
+    		
+    		
+    		
+    		
+    		
+    		
+    		
     		
     		
     		
