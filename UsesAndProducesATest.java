@@ -1,8 +1,15 @@
 
+class Guitar { }
+
 public class UsesAndProducesATest {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		
+		Horn h = new Horn();
+		
+		Milk m = new Milk(2,"White","Thick","-3 degree");
+			
 		GeerCow  gc1 = new GeerCow();
 		GeerCow  gc2 = new GeerCow();
 		GeerCow  gc3 = new GeerCow();
@@ -13,19 +20,19 @@ public class UsesAndProducesATest {
 		Water water1 = new Water(2, "Hard", "Warm"); //UDT
 		Water water2= new Water(1, "Soft", "Normal");
 		
-		Milk ltr1 = gc1.milkACow(sugarGrass, water1); //passing object as an Argument 
+		Milk milk1 = gc1.milkACow(sugarGrass, water1); //passing object as an Argument 
 		
 		System.out.println("--------------");
 		
-		Milk ltr2 = gc2.milkACow(cornGrass, water2);
+		Milk milk2 = gc2.milkACow(cornGrass, water2);
 		
 		System.out.println("--------------");
 		
-		Milk ltr3 = gc3.milkACow(sugarGrass, water2);
+		Milk milk3 = gc3.milkACow(sugarGrass, water2);
 		
-		ltr1.showMilk();
-		ltr2.showMilk();
-		ltr3.showMilk();
+		milk1.showMilk();
+		milk2.showMilk();
+		milk3.showMilk();
 		
 		/*
 		System.out.println("ltr 1 "+ltr1);
@@ -124,6 +131,9 @@ class Milk
 	String color;
 	String density;
 	String temperature;
+	
+	Milk() { }
+	
 	
 	public Milk(int quantityInLtr, String color, String density, String temperature) {
 		super();
