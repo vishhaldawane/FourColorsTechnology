@@ -6,33 +6,28 @@ public class UsesAndProducesATest {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		Horn h = new Horn();
-		
-		Milk m = new Milk(2,"White","Thick","-3 degree");
+	
+		GeerCow  gc = new GeerCow();
 			
-		GeerCow  gc1 = new GeerCow();
-		GeerCow  gc2 = new GeerCow();
-		GeerCow  gc3 = new GeerCow();
-		
 		Grass sugarGrass = new Grass(3,"pale green","Sugarcane");
 		Grass cornGrass  = new Grass(2,"dark green","Corn");
 		
-		Water water1 = new Water(2, "Hard", "Warm"); //UDT
-		Water water2= new Water(1, "Soft", "Normal");
+		Water water1 = new Water(12, "Hard", "Warm"); //UDT
+		Water water2= new Water(6, "Soft", "Normal");
 		
-		Milk milk1 = gc1.milkACow(sugarGrass, water1); //passing object as an Argument 
+		Milk milk = gc.milkACow(cornGrass, water1); //passing object as an Argument 
 		
-		System.out.println("--------------");
+		Curd curd = milk.coagulated();
 		
-		Milk milk2 = gc2.milkACow(cornGrass, water2);
+		System.out.println("Curd : "+curd);
 		
-		System.out.println("--------------");
+		Butter butter = curd.churn(); 
 		
-		Milk milk3 = gc3.milkACow(sugarGrass, water2);
+		System.out.println("butter : "+butter);
 		
-		milk1.showMilk();
-		milk2.showMilk();
-		milk3.showMilk();
+		ClarifiedButter pureGhee = butter.boil();
+		
+		System.out.println("Pure Ghee : "+pureGhee);
 		
 		/*
 		System.out.println("ltr 1 "+ltr1);
@@ -86,6 +81,26 @@ class Grass
 		System.out.println("Grass Color  : "+colorOfGrass);
 		System.out.println("Grass Type   : "+type);
 	}
+	public int getWeightInKg() {
+		return weightInKg;
+	}
+	public void setWeightInKg(int weightInKg) {
+		this.weightInKg = weightInKg;
+	}
+	public String getColorOfGrass() {
+		return colorOfGrass;
+	}
+	public void setColorOfGrass(String colorOfGrass) {
+		this.colorOfGrass = colorOfGrass;
+	}
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
+	}
+	
+	
 	
 }
 class Water
@@ -107,6 +122,32 @@ class Water
 		System.out.println("Water temp  : "+temperature);
 		
 	}
+
+	public int getWaterInLtr() {
+		return waterInLtr;
+	}
+
+	public void setWaterInLtr(int waterInLtr) {
+		this.waterInLtr = waterInLtr;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public String getTemperature() {
+		return temperature;
+	}
+
+	public void setTemperature(String temperature) {
+		this.temperature = temperature;
+	}
+	
+	
 }
 
 class GeerCow extends Cow // isA Cow - structural
@@ -114,12 +155,25 @@ class GeerCow extends Cow // isA Cow - structural
 	Hump hump = new Hump();//hasA it can communicate with Sun rays - structural
 	
 	Milk milkACow(Grass g, Water w) { //operational 
-		System.out.println("Cow is eating the grass....");
-		g.showGrass();
-		System.out.println("Cow is drinking the water....");
-		w.showWater();
+		System.out.println("Cow is eating the "+g.getType()+" type ,"+g.getColorOfGrass()+" grass");
+		
+		System.out.println("Cow is drinking "+w.getWaterInLtr()+" ltr water of type "+w.getType()+", of temperature "+w.getTemperature());
+		
 		//it can be calculated based on grass anf water type,qty etc
-		Milk milk = new Milk(5,"OffWhite","Thin","3 degree");
+		Milk milk=null;  //just a referece
+		
+		if(w.getWaterInLtr()>10 && g.getType().equals("Sugarcane"))
+			milk = new Milk(5,"OffWhite","Thin","10 degree");
+		
+		else if(w.getWaterInLtr()>10 && g.getType().equals("Corn"))
+			milk = new Milk(5,"OffWhite","Thick","5 degree");
+		
+		else if(w.getWaterInLtr()>5 && g.getType().equals("Sugarcane"))
+			milk = new Milk(3,"OffWhite","Thin","7 degree");
+		
+		else if(w.getWaterInLtr()>5 && g.getType().equals("Corn"))
+			milk = new Milk(3,"OffWhite","Thick","5 degree");
+		
 		return milk;
 	}
 	
@@ -151,4 +205,96 @@ class Milk
 		System.out.println("-----");
 		
 	}
+	
+	Curd coagulated() {
+		Curd curd = null;
+		
+		System.out.println(quantityInLtr+" ltr Milk is being coagulated....");
+		if(quantityInLtr==5 && density.equals("Thick"))
+			curd = new Curd("Thick",4.0f);
+		else if(quantityInLtr==3 && density.equals("Thick"))
+			curd = new Curd("Thick",2.0f);
+		
+		if(quantityInLtr==5 && density.equals("Thin"))
+			curd = new Curd("Thin",3f);
+		else if(quantityInLtr==3 && density.equals("Thin"))
+			curd = new Curd("Thin",1.0f);
+		
+			
+		return curd;
+	}
+}
+
+class Curd 
+{
+	String density;
+	float  weight;
+	
+	public Curd(String density, float weight) {
+		super();
+		this.density = density;
+		this.weight = weight;
+	}
+	@Override
+	public String toString() {
+		return "Curd [density=" + density + ", weight=" + weight + " kg]";
+	}
+	
+	Butter churn() {
+		Butter butter = null;
+		if(weight == 4) {
+			butter = new Butter("White",1.0f);
+		}
+		else if(weight == 8) {
+			butter = new Butter("White",2.0f);
+		} 
+		
+		return butter; //return promise
+	}
+	
+}
+class Butter
+{
+	String color;
+	float  weight;
+	public Butter(String color, float weight) {
+		super();
+		this.color = color;
+		this.weight = weight;
+	}
+	@Override
+	public String toString() {
+		return "Butter [color=" + color + ", weight=" + weight + " kg]";
+	}
+	
+	ClarifiedButter boil() {
+		ClarifiedButter desiGhee = null;
+		
+		if(weight == 1.0) {
+			desiGhee  = new ClarifiedButter("Yellow", weight/2);
+		}
+		else if(weight == 2.0) {
+			desiGhee  = new ClarifiedButter("Yellow", weight/2);
+		}
+
+		return desiGhee;
+	}
+}
+
+class ClarifiedButter
+{
+	String color;
+	float weight;
+	public ClarifiedButter(String color, float weight) {
+		super();
+		this.color = color;
+		this.weight = weight;
+	}
+	@Override
+	public String toString() {
+		return "ClarifiedButter [color=" + color + ", weight=" + weight + "]";
+	}
+	
+	
+	
 }
