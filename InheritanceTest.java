@@ -1,13 +1,114 @@
 import javax.swing.JFrame;
 
+abstract class Reptile
+{
+	 abstract void crawl();  // the method body is incomplete 	
+	 
+	 void eat() {
+		 System.out.println("Non-abstract function....eating.... ");
+	 }
+	 
+	 void breathing() {
+		 System.out.println("non-abstract  function ...breathing.....");
+	 }
+}
+
+class Snake extends Reptile {
+	void crawl() {
+		System.out.println("Snake is crawling....in the grass.....");
+	}
+	void shedSkin() { //exclusive 
+		
+	}
+}
+
+class RattledSnake extends Snake {
+	
+}
+
+class Turtle extends Reptile
+{
+	void crawl() {
+		System.out.println("Turtle is crawling in the spawining ground of the ocean");
+	}
+	void closeBodyParts() {
+		
+	}
+}
+class SnakeNeckedTurtle extends Turtle {
+	
+}
+
+class Lizard extends Reptile 
+{
+	void crawl() {
+		System.out.println("Lizard is crawling on the wall.....");
+	}
+}
+class FrillNeckedLizard extends Lizard {
+	
+}
+
+class Crocodile extends Reptile
+{
+	void crawl() {
+		System.out.println("Crocodile is crawling at the banking of the river");
+	}
+}
+
+class Allegator extends Crocodile {
+	
+	void rapidHuntWithBiteForce() {
+		System.out.println("allegator is rapidly hunting a Tiger....with a great jaw bite force....");
+	}
+	
+	void breathing() {
+		
+		System.out.println("allegator is breathing...at a slower rate....");
+	}
+}
+
+
+abstract class Mammal
+{
+	abstract void giveBirth();
+}
+ /*
+  * 
+  * 1					Reptile <---------------------------
+  * 					|	crawl();     					|
+  * ---------------------------------------------			|<-- implementation
+  *   |		   |			|					|			|
+  * 2 Snake	  Turtle	Lizard	 		Crocodile <-----------------
+  *   |		  |				|					|		           |<-- derivation
+  *	3 Rattled	SnakeNeckedTurtle FrillNeckedLizard  Allegator<----
+  *   Snake
+  * 
+  */
+ 
+
 public class InheritanceTest {
 
 	public static void main(String[] args) {
 		
+		Allegator alle = new Allegator();
+		alle.rapidHuntWithBiteForce(); //1. exclusive
+		alle.breathing();//3.overridden
+		alle.eat(); //2.inherited
+		alle.crawl(); //4.implemented
 		
+		
+		
+		
+		
+		
+	//	BankAccount baObj = new BankAccount(444,"Jack",55006);
+	//	baObj.showAccountDetails();
+		
+		/*
 		
 		// TODO Auto-generated method stub
-		SavingsAccount savObj1 = new SavingsAccount(101, "Jack",50000,4.5f); // USER ROLE!!!
+		SavingsAccount savObj1 = new SavingsAccount(101, "Suraj Dev",50000,4.5f); // USER ROLE!!!
 	
 		//savObj1.setInitialValues(101, "Jack",50000,4.5f);
 		savObj1.showAccountDetails();
@@ -46,7 +147,7 @@ public class InheritanceTest {
 		double credibility2 = creObj3.calculateCredibility();
 		System.out.println("Credibility2 Amount is : "+credibility2);
 		
-		
+		*/
 		
 	} //end of the main
 
@@ -65,9 +166,13 @@ public class InheritanceTest {
  * the character preceeding * should be matched zero or more times
  * 
  * 
+ * 99.99% code is as it is like the previous one
  * 
  */
-class BankAccount // DEVELOPER ROLE!!!!
+
+
+
+abstract class BankAccount // DEVELOPER ROLE!!!!
 {
 	//DATA MEMBER SECTION
 	private int accountNumber; // DATA member
@@ -79,6 +184,10 @@ class BankAccount // DEVELOPER ROLE!!!!
 				(acHolder != null) && 
 				(acHolder.matches("^[a-zA-Z]*$")
 		));
+	}
+	
+	BankAccount() {
+		
 	}
 	//parameterized constructor
 	BankAccount(int acno, String acHolder, double acbal) {
@@ -142,6 +251,9 @@ class SavingsAccount extends BankAccount // DEVELOPER ROLE!!!!
 	
 	private float interestRate; //plus 4th data here
 	
+	SavingsAccount() {
+		
+	}
 	//parameterized constructor
 	SavingsAccount(int acno, String acHolder, double acbal, float ir) {
 		super(acno,acHolder,acbal);
@@ -297,8 +409,13 @@ class CreditAccount extends BankAccount
 
 
 /*
- * 
- 							BankAccount
+ 
+  Art Gallery
+  
+  
+ incomplete
+ 
+ 				abstract	BankAccount
  								|
  				 	  			|acno,name,bal			  <--- generalized
  	 							|withdraw()
