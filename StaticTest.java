@@ -16,22 +16,8 @@ public class StaticTest {
 		Kite kite5 = new Kite("Pooja",80,"White",true);
 		Kite.showKiteCount();
 		
-		
-		
-
-		System.out.println("kite1 : "+kite1);
-		System.out.println("kite2 : "+kite2);
-		System.out.println("kite3 : "+kite3);
-		System.out.println("kite4 : "+kite4);
-		System.out.println("kite5 : "+kite5);
-		
+	
 		kite1.kiteFight(kite2);
-		
-		System.out.println("kite1 : "+kite1);
-		System.out.println("kite2 : "+kite2);
-		System.out.println("kite3 : "+kite3);
-		System.out.println("kite4 : "+kite4);
-		System.out.println("kite5 : "+kite5);
 		
 		
 		Kite.showKiteCount();
@@ -43,11 +29,38 @@ class Kite
 {
 	void kiteFight(Kite refToKite) { //refToKite is a proxy to kite2 for line 13
 		System.out.println(kiteColour+" color kite  is trying to have kite fight with "+refToKite.kiteColour+" color kite");
-		--kiteCount;
-		--kiteCount;
-		flyingStatus=false;
-		refToKite.flyingStatus=false;
 		
+	
+		for(int i=1;i<=20;i++) {
+			double num = Math.random(); //generate a number between 0 to 1
+			System.out.println("Kite fight is going on ....."+i+" seconds..."+num);
+			if(num > 0.98) {
+				--kiteCount;
+				refToKite.flyingStatus=false;
+				System.out.println(refToKite.kiteColour+" kite is down...");
+				break;
+			}
+			else if(num < 0.18) {
+				--kiteCount;
+				flyingStatus=false;
+				System.out.println(kiteColour+" kite is down...");
+				break;
+			}
+			else if (num >= 0.65 && num<=0.70) {
+				--kiteCount;
+				--kiteCount;
+				refToKite.flyingStatus=false;
+				flyingStatus=false;
+				System.out.println(kiteColour+" kite is down...");
+				System.out.println(refToKite.kiteColour+" kite is down...");
+				break;
+			}
+			else {
+				System.out.println("No kite is down...");
+			}
+			
+		}
+	
 	}
 	void flying() {
 		System.out.println(kiteOwner+" is flying this kite!!!");
