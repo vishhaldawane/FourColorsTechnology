@@ -198,6 +198,67 @@ class BottleContainer extends MyContainer //will it have a size
 	}
 }
 
+interface Drawing
+{
+	Art draw();
+}
+
+
+interface Art
+{
+	void erase();
+	void drawBorder();
+	void freeDraw();
+}
+
+				/*
+				 			Art    <================      Drawing
+				 			|								|
+				 	------------------					------------------
+				 	|				|					|			  |
+				 	MadhubaniArt	PortraitArt	  MadhubaniAritst  PortraitArtist
+				 									draw() { }			draw() { }
+				 		
+				  
+				 */
+
+class MadhubaniArt implements Art
+{
+	public void erase() { } //erase unwanted contents ....sometimes 
+	public void drawBorder() { } // draw a border 
+	public void freeDraw() { } //ur own skill of draw...
+}
+
+class PortraitArt implements Art
+{
+	public void erase() { } //erase unwanted shadows... ....sometimes 
+	public void drawBorder() { } // draw a border 
+	public void freeDraw() { } //ur own skill of draw...the face..add shadows...
+}
+
+abstract class Artist 
+{
+	
+}
+
+class MadhubaniArtist extends Artist implements Drawing
+{
+	public Art draw() {
+		MadhubaniArt myArt = new MadhubaniArt();
+		
+		return myArt; // may be  canvas of this size;
+	}
+}
+
+class PortraitArtist extends Artist implements Drawing
+{
+	public Art draw() {
+		
+		PortraitArt portrait = new PortraitArt();
+		return portrait; // may be  canvas of this size;
+	}
+}
+
 
 
 
