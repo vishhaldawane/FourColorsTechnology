@@ -991,6 +991,9 @@ Turtle   Tiger	 Monkey				Tester
 				|								|
 				|run() { //empty } <------------+
 				|
+		---------------------
+					
+				
 					
 	
 	
@@ -998,14 +1001,15 @@ Turtle   Tiger	 Monkey				Tester
 					  Cutting <--interface
 						|
 						|cut();
-				--------------------
-				|
-				|
-				Cutter
+				-----------------------
+				|					|
+				|					SteelRuler
+				Cutter					cut() { }
 				|			 JVM's
 				|start() ---->Thread Scheduler -+
 				|								|
 				|cut() { //empty } <------------+
+				|Cutting ref;
 				|
 		---------------------
 		|		|		|
