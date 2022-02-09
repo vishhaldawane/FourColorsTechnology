@@ -5,8 +5,8 @@ public class ThreadTest {
 		// TODO Auto-generated method stub
 
 		System.out.println("Begin of main....");
-		Bike bike= new Bike();
-		Bike bike2= new Bike();
+		Bike bike= new Bike(); //I.c
+		Bike bike2= new Bike(); //I.c
 		
 		Car car = new Car();
 		Car car2 = new Car();
@@ -31,7 +31,7 @@ public class ThreadTest {
 		System.out.println("is bus  thread alive? : "+bus.isAlive());
 
 		
-		bike.start(); //->run();
+		bike.start(); //I.d ->run();
 		bike2.start(); //->run();
 
 		
@@ -69,9 +69,9 @@ public class ThreadTest {
 
 }// ILF - TRAINING WORK FORCE MANAGEMENT 
 
-class Bike extends Thread 
+class Bike extends Thread //I.a
 {
-	public void run() { //overridden - not a mandate
+	public void run() { //I.b overridden - not a mandate
 		for(int i=1;i<100;i++) {
 			System.out.println("Bike completed..."+i+" kms");
 		}
@@ -95,3 +95,4 @@ class Bus extends Thread
 		}
 	}
 }
+

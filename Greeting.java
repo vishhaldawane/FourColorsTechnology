@@ -992,7 +992,8 @@ Turtle   Tiger	 Monkey				Tester
 				|run() { //empty } <------------+
 				|
 		---------------------
-					
+		|		|		|
+		Bike	Car		Bus
 				
 					
 	
@@ -1015,5 +1016,53 @@ Turtle   Tiger	 Monkey				Tester
 		|		|		|
 		Knife	Hacksaw	Scissor
 		
+		
+			  		 Flying <--interface
+						|
+						|fly();
+				-----------------------
+				|					|
+				|					SteelRuler
+				Flight					cut() { }
+				|			 JVM's
+				|start() ---->Thread Scheduler -+
+				|								|
+				|fly() { //empty } <------------+
+				|Flying ref;
+				|
+		-------------------------------
+		|		  |				|
+CommercialFlight FighterFlight	CargoFlight
+		
     
+    
+    I. by extending Thread class
+    
+	    a. WAC to extend from java.lang.Thread class
+	    b. override the run() method to put your code which
+	    	participates in threading
+	    c. instantiate your class of step a
+	    d. invoke its start() method -> which invokes its run() method
+	    
+	    
+	 
+    II. by implementing Thread class
+    
+	    a. WAC to implement from java.lang.Runnable interface [ same like SteelRuler ]
+	    b. implement [mandate] the run() method to put your code which
+	    	participates in threading
+	    c. instantiate your class of step a
+	    d. instantiate java.lang.Thread class, and to its constructor pass your object
+	    	of step a
+	    	
+	    e. invoke java.lang.Thread's start() method -> which invokes your run() method
+	    
+	        
+	    
+	    
+	    
+	    
+	    
+	    
+	    
   */
