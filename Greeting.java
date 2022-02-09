@@ -1059,6 +1059,22 @@ CommercialFlight FighterFlight	CargoFlight
 	    
 	        
 	    
+					Runnable <--interface
+						|
+						|run();
+				----------------------------------------+
+				|										|
+				|										|
+				Thread									|
+				|			 JVM's						|
+				|start() ---->Thread Scheduler -+		|
+				|								|		|
+				|run() { //empty } <------------+		|
+				|										|	JFrame
+		---------------------							|	|
+		|		|		|								|	|
+		Bike	Car		Bus								MyFrame
+				
 	    
 	    
 	    
