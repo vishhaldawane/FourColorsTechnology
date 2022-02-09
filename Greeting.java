@@ -382,15 +382,51 @@ class Welcome { // Welcome.java
     			
     	4. Inheritance
     	
+    	classification of inheritance 
+    			|
+    	-----------------------
+    	|					|
+   Derivation		Implementation
+   	 |						|
+   Point2D				abstract Reptile <-- abstract class
+   |						|abstract crawl(); 
+   Point3D				 Snake <-- its a mandate/compulsion on Snake to define/
+   |						|			implement this abstract function crawl()
+   ColouredPoint3D   RattledSnake
+   
+   
+    	
     		ability of a business entity to acquire properties from existing
     		business entities
     		
+    		1. Single level
+    			   
+    			   Point2D
+    				|
+    				Point3D
+    			
+    		2. multi level
+    				
+    				Point2D
+    				|
+    				Point3D
+    				|
+    				ColouredPoint3D
+    				
+    		3. multiple level - interfaces - FreedomFighing, Wakeup, Sleeping
     		
+    		FreedomFighting Wakeup	Sleeping
+    			|			|		|
+    			---------------------
+    				|
+    			GrandFather
     		
     			
     	
     	5. Object communication
     		
+    		usesA
+    		producesA
     		
     	
 ASSIGNMENT DAY 2
@@ -500,40 +536,480 @@ INNOVATE INHERITANCE IN THESE CLASSED INNOVATED BY YOU
     		
     		
     		
+    class Animal
+    {
+    
+    }
+    class Mammal extends Animal //isA
+    {
+    
+    }
+    class Human extends Mammal //isA
+    {
+    
+    }
+    
+    class PanCard
+    {
+    	String panNumber;
+    	String fatherName;
+    	LocalDate dateOfBirth;
+    	String issuedBy;
+    	
+    	set/show
+    	
+    }
+    
+  
+    class Person extends Human //isA - aggregation
+    {
+    	char gender; //hasA
+    	int  age;    //hasA
+    	String name; //hasA
+    	
+    	//composition - containment
+    	PanCard panCard = new PanCard(); //creating an object as a DATA MEMBER
+    	
+    	
+    }
     		
     		
     		
     		
     		
+    	A S S O C I A T I O N      OF OBJECTS
+    	
+    	 	
+    	 	
+   1 	 	isA
+    	 	
+    	 	Point2D
+    	 	|isA
+    	 	|
+    	 	Point3D
+    	 	|isA
+    	 	|
+    	 	ColouredPoint3D
+    	 	
+    	 	
+    	 	
+    2	 	hasA
+    	 	
+    	 	class Wheel { }
+    	 	
+    	 	class Car
+    	 	{
+    	 	  Wheel wheel = new Wheel(); //hasA - as a DATA member
+    	 	}
+    	 	
+    	 	
+    3.	 	usesA
+    	 	
+    	 	producesA
+    	 	
+    	 	
+    	 	
+    		
+    ====================================================================
+    		
+    				field			method				class
+    ====================================================================
+    
+1    final		constant/			cannot be			cannot be
+				immutable			overridden			extended
+    	
+    ---------------------------------------------------------------------
+    
+2    static		sharable data		used to refer		...
+				across all the		other static
+				instances of		members
+				the class
+    	
+   	---------------------------------------------------------------------
+	
+3    abstract		NA				a method with		cannot be
+	[ incomplete/					no code body/ no	instantiated
+	  partial ]						implementation
+	  								/MUST RESIDE IN		may not have
+    								AN ABSTRACT CLASS	abstract methods
+    ---------------------------------------------------------------------
+		
+		int    x=100;
+		|      |  |
+	datatype name value	 
+		
     		
     		
+    
+    	incomplete method
+    		- method without code body
+    		
+    	abstract function
+    		- partial contract of a class - incomplete method
+   
+    	abstract class
+    		- it may containt partial contract
+    		- it may have non-abstract methods...
     		
     		
+    	Interfaces
+    	
+    			- pure abstract classes
+    			- there is no scope for any method body [ except default methods ]
+    			
+    			- by default every method is an abstract
+    			- access specifier is public
+    			
+    			- by default every field is public,static and final
+    			
+    	
+    Reactive	Responsive Proactive	Working	  Executing  Managing Directing <--- abstract classes 
+      react();	 respond();  proact();    work();   execute();  manage();  direct(); <--abstract methods
+      
+      
+      
+      Human
+      |
+      |
+      |  Reactive*
+      |  | Responsive*
+      |  | |
+      |  | |
+      Person
+      |
+      +----------------------
+      |						|
+      |  Proactive*			| Swimming*
+      |  |					|   |swim();
+      |  |					|   |
+      Student			  Swimmer
+      |						|
+      |						| Diving*	Driving 
+      |  Working*			|  |dive();  drive();
+      |   |	Swimming*	    Diver
+      |   | |
+      Employee
+      |
+      | Executing*
+      |  | Diving*
+      |  |  |
+      Executive
+      
+      interface Reactive <-- pure abstract class
+      {
+      	 void react(); //public abstract
+      }
+      interface Responsive
+      {
+      	 void respond(); //public abstract
+    
+      }
+
+	  abstract class Human
+	  {
+	  		void think();
+	  }
+	  
+      class Person extends Human implements Reactive, Responsive
+      {
+      	void react(){}
+      	void respond(){}
+      	void think() { }
+      }
+      
+      class Student extends Person
+      {
+      
+      }
+    	
+    			
+    
+    	Packages are similar to the DIRECTORIES on the operating system
+    	
+    	
+    	DIRECTOIRES - to organize relevant files and sub folders
+    	
+    	
+    					mycollection <-- major folder - main package
+    						|
+    			---------------------------
+    			|			|
+    			audio		video <-- sub folders - sub packages
+    			|				|
+    	---------------		----------------
+    	|		|	  |		|		|
+    	wma		mp3   wav  mp4		avi <- sub folders - sub packages
+    			|		|
+    			*		* <-- actual songs - actual classes of java 
+    			
+    			
+    					  c:\
+    					  |
+    					  myworkspace
+    					  |
+    				---------------
+    				|
+    				PackageProject
+    				|
+    			---------
+    			|		|
+    		  src		bin
+    		  |			|
+    	First.java	First.class
+    			
     		
     		
-    		
-    		
-    		
-    		
-    		
-    		
+    		  			c:\
+    					  |
+    					  myworkspace
+    					  |
+    				---------------
+    				|
+    				PackageProject
+    				|
+    			---------
+    			|		|
+    		  src		bin
+    		  |			
+    		jungle
+    		   |
+   	------------------------------------
+   	|		|		|				|
+  river	  cave		tree			use
+   |		|		 |				|
+Turtle   Tiger	 Monkey				Tester
+				 |						|
+				 Monkey.java			Tester.java
+				 package jungle.tree;	package jungle.use
+				 class Monkey			public class Tester
+				 {						{
+				 	          int defAge;
+				 	private   int priAge;
+				 	protected int proAge;
+				 	public    int pubAge;
+				 	
+				 	
+				 	void jump() {			psvm(String args[]) {
+				 		SOP-jumping				Monkey mon = new Monkey();
+				 	}							mon.jump();
+				 	Monkey() {				}
+				 		SOP-ctor		}
+				 	}
+				 }
+				 
+				 Bird.java - non-child
+				 ----------
+				 pacakge jungle.tree;
+				 class Bird
+				 {
+				 	void fly() 
+				 	{
+				 		Monkey m = new Monkey();
+				 		m.jump();
+				 		m.defAge=12; //work
+				 		m.priAge=12; //error - not visible
+				 		m.proAge=12; //work
+				 		m.pubAge=12; //work
+				 	}
+				 }
+				 
+   	
+   		1. ______ <--- default/friendly/accessible in the same folder/package
+   		2. public <-- available across the internet
+   		
+   		3. private 
     	
     	
     	
+    Exception handling
+     |
+    runtime error
+    
+    							Errors
+    								|
+    			--------------------------------------------------
+    			|		|			|		   |			|
+    			compile runtime  jar error   fatal		logical
+    			|		 |			|			|			|
+    			syntax Exception  jarfiles   jvm crashed  8+2=10 or 16
     	
+    	
+    	
+    								Object
+    								|
+    							----------
+    							|
+    							Throwable
+    							|all are throwable
+    					-----------------
+    					|			|
+    					Error		Exception <-- "checked" - except the RuntimeException
+    									| <-- can be caught - throws clause is mandatory
+    			----------------------------------------------
+    				|				|				|
+    				|			IOException		SQLException
+    		RuntimeException 		
+    		  |<-"unchecked" -  throws clause is not mandatory
+    --------------------------------------------------------------------------------------------------------------------------------
+    |					|	|						|						|							|					|
+ ArithmeticException	| NullPointerException NoSuchElementException  RedSignalDisHonouredException LaneCrossedException SpeedLimitException
+ 			IndexOutOfBoundsException					|
+ 						|						InputMismatchException
+						|
+ 			-----------------------------------
+ 			|								|
+ 	ArrayIndexOutOfBoundsException	StringIndexOutOfBoundsException
+ 	
     	
     				
     				
     
+    "checked" by the compiler - NOT escaped during the compilation process
+    
+    "unchecked" by the compiler - escaped during the compilation process
+    
+    before drive = compilation				during drive = runtime
+    		checked								unchecked
+    		u r having TEA,
+    		and u r asking the other
+    		family member to search 
+    		for the key
+    		|
+    		Exception						RuntimeException
+    		|									|
+    CarKeyNotFoundException					RedSignalDisHonouredException
+    DrivingLicenseNotFoundException			LaneCrossedException
+    InsurancePaperNotFoundException			SpeedLimitException
+    RCBookNotFoundException					? DEVELOPE ONE CLASS HERE
+    PUCNotFoundException
+    ? DEVELOPE ONE CLASS HERE
     
     
-    
-    
-    
-    
-    
-    
-    
-    
+  ----------------------------------------------------------
+  
+  java.util
+  
+  
+   Collection framework
+   
+   			 A Bag - to hold the Content
+ 
+			 A Sac 
+		
+			Component's Orthogonal Space
+		
+						x  - data types - Content
+						|					|
+					   / \				SoftDrink
+					  /   \			    Fried Rice
+					 /     \			Noodles
+					/       \			PaneerChilly
+				   y----i----z   	    Pickle
+				   |	|    |
+			+------+    |    +-------+
+			|       Iterator		 |
+		Container		|		Algorithm
+		|				|			 |	
+		Bottle		 Straw		  drink()
+		Plate		 Spoon		  eat()	
+		Plate		 Chopsticks	  eat()
+		Plate		 Fork		  eat()	
+		Plate/Bowl	 Finger		  lick()
+		
+		Bottle   chopsticks   Noodles  lick()
+		
+		
+		A container provider must provide 
+		its Iterator
+		
+		 
+		 
+	container   Iterator
+		 |		   |
+		 Bottle<->Staw
+		 Plate<->spoon
+		 Bowl <->SoupSpoon
+		 Coconut<->Straw
+		 
+		    				
+	----------------------------------------------------------------	  		
+		  				
+		MULTI-THREADING
+		 
+	
+	
+	
+			Thread = set of instructions
+			
+			
+	Bank Account Master
+	
+	acno	name	balance
+	----	-----	-------
+	101		Suresh	70000
+	102		Naresh	60000
+	103		Haresh  70000
+	104		Ramesh	80000
+	
+	Thread synchronization
+	
+				Cash Deposit Counter
+				=======================
+				
+				Board					Board					Board
+				a/c 1 to 110			ac 111 to 210			ac 211 to 311
+				
+				Teller1					Teller2					Teller3
+				|						|						|
+				getBalanace()			getBalance();			getBalance();
+				|						|						|
+				calcAmount()			calcAmount()			calcAmount()
+				|						|						|
+				setBalance()			setBalance()			setBalance()
+				|						|						|
+				Customer1				Customer2				Customer3
+	time		10.30					10.30					10.30
+	a/c			101						101						101
+	cash		5000/-					7000/-					8000/-
+	denos		100/-Rs. note			500/-Rs. note			2000/-Rs. note
+	counts		50 notes				14 notes				4 notes
+	
+	
+	java.lang
+	
+	
+	
+					Runnable <--interface
+						|
+						|run();
+				--------------------
+				|
+				|
+				Thread
+				|			 JVM's
+				|start() ---->Thread Scheduler -+
+				|								|
+				|run() { //empty } <------------+
+				|
+					
+	
+	
+	
+					  Cutting <--interface
+						|
+						|cut();
+				--------------------
+				|
+				|
+				Cutter
+				|			 JVM's
+				|start() ---->Thread Scheduler -+
+				|								|
+				|cut() { //empty } <------------+
+				|
+		---------------------
+		|		|		|
+		Knife	Hacksaw	Scissor
+		
     
   */
