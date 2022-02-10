@@ -4,6 +4,28 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+
+
+/*
+
+  
+  create table dept_fc
+  (
+    deptno int primary key,
+    deptname varchar(20),
+    deptloc  varchar(20)
+  );
+  
+  insert into dept_fc values (10,'IT','Mumbai');
+  insert into dept_fc values (20,'Sales','Delhi');
+  insert into dept_fc values (30,'QMS','Pune');
+  insert into dept_fc values (40,'Testing','Chennai');
+  
+  SELECT * FROM DEPT_FC;
+  
+ */
+
+
 public class SelectTest {
 
 	public static void main(String[] args) {
