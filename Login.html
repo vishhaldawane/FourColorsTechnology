@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="globalStyle1.css">
+</head>
+<body>
+<script>
+	function checkAllLetters()
+	{
+		var enteredUserName=document.getElementById('username').value;
+		console.log('username is '+username);
+		
+		
+		var setOfValidLetters='^[a-zA-Z]+$';
+		
+		if(enteredUserName.length >=8 ) 
+		{
+			if(enteredUserName.match(setOfValidLetters)) {
+				console.log('valid username '+enteredUserName.length);
+				return true;
+			}
+		}
+		else {
+			console.log('Invalid username '+enteredUserName.length);
+			return false;
+		}
+	}
+</script>
+<h1> Welcome To My Airline Reservation System </h1>
+<hr>
+<h2> Login Existing User </h2>
+
+<form action="">
+	<table border=1 cellspacing=10 cellpadding=10>
+	
+	<tr>
+		<td> Enter username  </td>  <td> 
+		
+		<input type=text name=username id="username" onkeyup="checkAllLetters()" >
+		<!-- pattern="[a-zA-Z]{8}" 
+		title="Must contain letters and at least 8 or more characters" 
+		required -->  
+		</td>
+	</tr>
+	
+	<tr>
+		<td>Enter password  </td>  <td>
+		<input type="password" id="psw" name="psw"
+		pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
+		title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" 
+		required>
+		</td>
+	</tr>
+	
+	<tr>
+		<td><input type=submit name=submit value="Login Here"> </td>  
+		<td><input type=reset name=clear value="Reset"> </td>  
+	</tr>
+	
+	<tr>
+		<td><a href="SearchFlights.html">Search Flights...</a> </td>  
+		<td>Not a member? <a href="Register.html">Sign-Up</a> here </td>  
+	</tr>
+	
+	<tr>
+		<td>Forgot password? <a href="ForgotPassword.html">Click </a> here </td>  
+		<td>Reset password? <a href="ResetPassword.html">Reset </a> here </td>  
+	</tr>
+	
+	</table>
+</form>
+
+</body>
+</html>
