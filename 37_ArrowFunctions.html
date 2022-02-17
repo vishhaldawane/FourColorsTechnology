@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html>
+
+	
+<body>
+	
+  <p>Before the script...</p>
+
+  <script>
+	'use strict';
+
+	// let functionVariableName =  (arguments)  =>  body of the function
+	
+	let fun =    function ()                       {               }
+	
+	//let func =          (arg1, arg2, ...argN) => single line ;
+	//let fund =          (arg1, arg2, ...argN) => { line1; line2  } ;
+	
+	//let fune =           arg1                 => single line1 ;
+	//let funf =           arg1                 => { line1, line 2 } ;
+	//let fung =           ()                   =>  single line ;
+	//let funh =           ()                   => { line1, line2  } ;
+
+	/*
+		let func = function   (arg1, arg2, ...argN) {
+		  return expression;
+	};
+
+	*/
+	
+	/* This arrow function is a shorter form of:
+
+		let sum = function(a, b) {
+ 		return a + b;
+	};
+	*/
+  //let sum1 = function (a, b) { a + b } ;
+	let sum2 =          (a, b) => a + b;
+	alert( sum2(1, 2) ); // 3
+
+	let double2   =       n     => n * 2;  
+	alert( double2(3) ); // 6	
+
+	//let double   = function(n) { return n * 2 }
+	// roughly the same as: 
+	//let double = function(n )
+	//	{ return n * 2 }
+
+	let sayHi = () => alert("Hello!");
+	sayHi();
+	
+	let age = prompt("What is your age?", 18);
+	let welcome = (age < 18) ?
+		  () => alert('Hello')  :
+		  () => alert("Greetings!");
+	welcome(); // ok now
+	
+  </script>
+
+  <p>...After the script.</p>
+
+</body>
+
+</html>
