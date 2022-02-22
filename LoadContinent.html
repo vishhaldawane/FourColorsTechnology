@@ -36,7 +36,7 @@ function sendInfo2()
 function getInfo2() {
 	if(request.readyState==4){
 		var val=request.responseText;
-		document.getElementById('myid').innerHTML=val;
+		document.getElementById('myid2').innerHTML=val;
 	}
 }
 
@@ -83,14 +83,14 @@ function getInfo() {
 	 -->
 	 STATIC
 	 <select id="mycontinents" name="mycontinents"  onchange="sendInfo()"  > 
-	 	<option value="Asia">Asia</option>
+	 	<option value="Asia" selected="true" >Asia</option>
 	 	<option value="Europe">Europe</option>
 	 </select>
 	
 </form>
 
  <span id="myid"> </span>
-
+ <span id="myid2"> </span>
 
 </body>
 </html>

@@ -44,6 +44,19 @@ insert into state values (7,'Matara',3);
 insert into state values (8,'Badulla',3);
 insert into state values (9,'Monaragala',3);
 
+
+insert into states values (10,'Alsace',4);
+insert into states values (11,'Aquitaine',4);
+insert into states values (12,'Brittany',4);
+
+insert into states values (13,'Berlin',5);
+insert into states values (14,'Hamburg',5);
+insert into states values (15,'Hessen',5);
+
+insert into states values (16,'Scotland',6);
+insert into states values (17,'Ireland',6);
+insert into states values (18,'Wales',6);
+
 select * from states where country_id in (select country_id from countries where continent_id = (select continent_id from continents where continent_name='Asia'));
 
 select * from states where country_id in (select country_id from countries where country_name='India');
